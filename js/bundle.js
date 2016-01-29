@@ -5247,6 +5247,9 @@ angular.mock.animate = angular.module('ngAnimateMock', ['ng'])
         on: $delegate.on,
         off: $delegate.off,
         pin: $delegate.pin,
+        get reflows() {
+          return $$forceReflow.totalReflows;
+        },
         enabled: $delegate.enabled,
         /**
          * @ngdoc method
@@ -9743,7 +9746,7 @@ function jqLiteParseHTML(html, context) {
 
 
 // IE9-11 has no method "contains" in SVG element and in Node.prototype. Bug #10259.
-var jqLiteContains = function(arg) {
+var jqLiteContains = Node.prototype.contains || function(arg) {
   // jshint bitwise: false
   return !!(this.compareDocumentPosition(arg) & 16);
   // jshint bitwise: true
