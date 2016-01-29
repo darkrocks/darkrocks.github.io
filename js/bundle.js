@@ -5247,7 +5247,7 @@ angular.mock.animate = angular.module('ngAnimateMock', ['ng'])
         on: $delegate.on,
         off: $delegate.off,
         pin: $delegate.pin,
-        get reflows() {
+        get: reflows() {
           return $$forceReflow.totalReflows;
         },
         enabled: $delegate.enabled,
