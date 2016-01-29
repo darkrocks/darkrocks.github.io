@@ -1,0 +1,162 @@
+<div ng-class="buildRowClass + buildRowAnimationClass" class = 'build-row expand-animation' ng-style="buildRowStyle">
+
+  <div class="row">
+    <div class="icon column"><div ng-class="model.iconClass"></div></div>
+    <div class="name column text-cell" >{{model.name}}</div>
+    <div class="owner column text-cell">{{model.owner}}</div>
+    <div class="time-started column text-cell">{{model.timeStartedFormated}}</div>
+    <div class="state column text-cell">{{status}}</div>
+    <div class="metrix column">
+      <progress-bar progress="model.metrixProgress" success="metrixPassed" ng-hide="active"></progress-bar>
+    </div>
+    <div class="build column">
+      <progress-bar progress="model.buildProgress" success="buildPassed" ng-hide="active"></progress-bar>
+    </div>
+    <div class="unit-test column">
+      <progress-bar progress="model.unitTestProgress" success="unitTestsPassed" ng-hide="active"></progress-bar>
+    </div>
+    <div class="functional-test column">
+      <progress-bar progress="model.functionalTestsProgress" success="functionalTestsPassed" ng-hide="active"></progress-bar>
+    </div>
+  </div>
+
+  <div class="row build-details">
+    <div class="details-box-col column">
+      <div class="build-details-box" ng-class="metrixBoxClass">
+        <div class="build-details-header">
+          Metrics
+        </div>
+        <div class="details-box-waiting" ng-show="!model.metrix">
+          {{model.metrixProgress}}%
+        </div>
+        <div class="row" ng-show="model.metrix">
+          <div class="one-half column arrow-box">
+            <div ng-class="testArrowIcon" class="icon"></div>
+            <div class="arrow-number">{{model.metrix.metrixTestScore}}</div>
+            <div class="arrow-text">Test</div>
+          </div>
+          <div class="one-half column arrow-box">
+            <div ng-class="maintainabilityArrowIcon" class="icon"></div>
+            <div class="arrow-number">{{model.metrix.metrixMaintainabilityScore}}</div>
+            <div class="arrow-text maintainability">Maintainability</div>
+          </div>
+        </div>
+        <div class="row" ng-show="model.metrix">
+          <div class="one-half column arrow-box">
+            <div class="icon-right icon horizontal"></div>
+            <div class="arrow-number horizontal">{{model.metrix.metrixSecurityScore}}</div>
+            <div class="arrow-text">Security</div>
+          </div>
+          <div class="one-half column arrow-box">
+            <div class="icon-right icon horizontal"></div>
+            <div class="arrow-number horizontal">{{model.metrix.metrixWorkmanshipScore}}</div>
+            <div class="arrow-text">Workmanship</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="details-box-col column">
+      <div class="build-details-box" ng-class="buildBoxClass">
+        <div class="build-details-header">
+          Build
+        </div>
+        <div class="details-box-waiting"  ng-show="model.buildProgress!==100">
+          {{model.buildProgress}}%
+        </div>
+        <div class="row build-icons-container" ng-show="model.buildProgress===100">
+          <div class="one-half column" ng-class="debugBuildClass">
+            <div class="icon-build"></div>
+            <div class="build-text">Debug</div>
+          </div>
+          <div class="one-half column" ng-class="releaseBuildClass">
+            <div class="icon-build"></div>
+            <div class="build-text">Release</div>
+          </div>
+        </div>
+        <div class="build-time" ng-show="model.buildProgress===100">
+          {{model.timeStartedFormated}}
+        </div>
+      </div>
+    </div>
+    <div class="details-box-col column">
+      <div class="build-details-box" ng-class="unitTestBoxClass">
+        <div class="build-details-header">
+          Unit Test
+        </div>
+        <div class="details-box-waiting"  ng-show="model.unitTestProgress!==100">
+          {{model.unitTestProgress}}%
+        </div>
+        <div class="row test-chart-container" ng-show="model.unitTestProgress===100">
+          <div class="sixty-perc column">
+            <pie-chart data="unitTestChartData" width="120"></pie-chart>
+          </div>
+          <div class="forty-perc column">
+            <div class="test-passed-percentage">
+              {{unitTestPercentage}}%
+            </div>
+            <div class="test-passed-text">
+              tests passed
+            </div>
+          </div>
+        </div>
+        <div class="coverage-indicator-container" ng-show="model.unitTestProgress===100">
+          <coverage-indicator percentage="model.unitTestsCoverage"></coverage-indicator>
+        </div>
+      </div>
+    </div>
+    <div class="details-box-col column">
+      <div class="build-details-box" ng-class="functionalTestBoxClass">
+        <div class="build-details-header">
+          Functional Test
+        </div>
+        <div class="details-box-waiting"  ng-show="model.functionalTestsProgress!==100">
+          {{model.functionalTestsProgress}}%
+        </div>
+        <div class="row test-chart-container" ng-show="model.functionalTestsProgress===100">
+          <div class="sixty-perc column">
+            <pie-chart data="functionalTestChartData" width="120"></pie-chart>
+          </div>
+          <div class="forty-perc column">
+            <div class="test-passed-percentage">
+              {{functionalTestPercentage}}%
+            </div>
+            <div class="test-passed-text">
+              tests passed
+            </div>
+          </div>
+        </div>
+        <div class="coverage-indicator-container" ng-show="model.functionalTestsProgress===100">
+          <coverage-indicator percentage="model.functionalTestsCoverage"></coverage-indicator>
+        </div>
+      </div>
+    </div>
+    <div class="details-message-col column">
+      <div class="build-message-box">
+        <div class="build-message-header result">
+          Result:
+        </div>
+        <div class="status-line-1">
+          {{statusLine1}}
+        </div>
+        <div class="status-line-2">
+          {{statusLine2}}
+        </div>
+        <div class="find-issues status-button" ng-show="status==='Failed'||status==='Rejected'">
+          <button>Find Issues</button>
+        </div>
+        <div class="check-merged-build status-button" ng-show="status==='Accepted'">
+          <button>Merged Build</button>
+        </div>
+        <div class="deploy status-button" ng-show="status==='Complete'">
+          <button>Deploy</button> <span>to</span>
+        </div>
+        <div class="deploy status-button" ng-show="status==='Complete'">
+          <select>
+            <option value="Production">Production</option>
+            <option value="Staging">Staging</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

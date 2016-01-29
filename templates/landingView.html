@@ -1,0 +1,17 @@
+<div class="container">
+
+  <div class="row build-table-header">
+    <div class="changelist-header column">Changelist / Build</div>
+    <div class="owner column">Owner</div>
+    <div class="time-started column">Time Started</div>
+    <div class="state column">State</div>
+    <div class="metrix column">Metrix</div>
+    <div class="build column">Build</div>
+    <div class="unit-test column">Unit Test</div>
+    <div class="functional-test column">Functional Test</div>
+  </div>
+
+<build-row model="build" active="activeBuildId === build.id" ng-click="onRowClicked(build)" ng-repeat="build in builds track by build.id">
+
+</build-row>
+</div>
