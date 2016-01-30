@@ -21,6 +21,8 @@ app.directive('progressBar', progressBar);
 app.directive('pieChart', pieChart);
 app.directive('coverageIndicator', coverageIndicator);
 
+angular.bootstrap(document, ['app']);
+
 },{"./backendStub":2,"./components/buildRow/buildRow":3,"./components/coverageIndicator/coverageIndicator":4,"./components/pieChart/pieChart":5,"./components/progressBar/progressBar":6,"./dataService":7,"./landing/LandingController":8,"angular":13,"angular-animate":10,"angular-mocks":11}],2:[function(require,module,exports){
 var ownerNames = [
   'bill',
