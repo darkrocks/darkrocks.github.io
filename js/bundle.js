@@ -389,6 +389,11 @@ var pieChart = function() {
       function refresh() {
         if (!scope.data) return;
 
+        scope.style = {
+          width: scope.width + 'px',
+          height: scope.width + 'px'
+        };
+
         var canvas = element.find('canvas')[0];
         var ctx = canvas.getContext('2d');
 
