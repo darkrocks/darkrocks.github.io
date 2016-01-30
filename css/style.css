@@ -743,6 +743,10 @@ select {
 .build-row .deploy span {
   color: #000;
 }
+.build-row .pie-chart-wrapper {
+  width: 107px;
+  height: 107px;
+}
 .expand-animation {
   -webkit-transition: 0.1s ease-in height;
   transition: 0.1s ease-in height;
