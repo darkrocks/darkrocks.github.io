@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <title>Crossover test</title>
   <link rel="stylesheet" href="css/style.css">
+  <!--[if lte IE 8]>
+    <script src="js/excanvas.js"></script>
+  <![endif]-->
 </head>
 <body>
-<div data-ng-controller="LandingController" data-ng-include="'templates/landingView.html'"></div>
-<script src="js/bundle.js"></script>
-<script src="js/polyfil.js"></script>
+  <div data-ng-controller="LandingController" data-ng-include="'templates/landingView.html'"></div>
+  <script src="js/polyfil.js"></script>
+  <script src="js/bundle.js"></script>
 </body>
 </html>
 
