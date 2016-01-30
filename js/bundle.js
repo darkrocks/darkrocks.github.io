@@ -165,7 +165,7 @@ var moment = require('moment');
 
 var buildRow = function() {
   return {
-    restrict: 'E',
+    restrict: 'EA',
     scope: {
       model: '=',
       active: '='
@@ -339,7 +339,7 @@ module.exports = buildRow;
 },{"moment":15}],4:[function(require,module,exports){
 var coverageIndicator = function() {
   return {
-    restrict: 'E',
+    restrict: 'EA',
     scope: {
       percentage: '='
     },
@@ -373,7 +373,7 @@ var d3 = require('d3');
 
 var pieChart = function() {
   return {
-    restrict: 'E',
+    restrict: 'EA',
     scope: {
       data: '=',
       width: '@'
@@ -445,7 +445,7 @@ module.exports = pieChart;
 },{"d3":14}],6:[function(require,module,exports){
 var progressBar = function() {
   return {
-    restrict: 'E',
+    restrict: 'EA',
     scope: {
       progress: '=',
       success: '='
