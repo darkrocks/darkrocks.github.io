@@ -556,6 +556,12 @@ select {
 @font-face {
   font-family: "crossover";
   src: url("../fonts/crossover.eot");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "crossover";
+  src: url("../fonts/crossover.eot");
   src: url("../fonts/crossover.eot?#iefix") format("embedded-opentype"), url("../fonts/crossover.woff") format("woff"), url("../fonts/crossover.ttf") format("truetype"), url("../fonts/crossover.svg#crossover") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -585,25 +591,25 @@ select {
   -moz-osx-font-smoothing: grayscale;
 }
 .icon-build:before {
-  content: "\61" !important;
+  content: "\61";
 }
 .icon-down:before {
-  content: "\63" !important;
+  content: "\63";
 }
 .icon-up:before {
-  content: "\64" !important;
+  content: "\64";
 }
 .icon-left:before {
-  content: "\65" !important;
+  content: "\65";
 }
 .icon-right:before {
-  content: "\66" !important;
+  content: "\66";
 }
 .icon-search:before {
-  content: "\67" !important;
+  content: "\67";
 }
 .icon-changeset:before {
-  content: "\68" !important;
+  content: "\68";
 }
 .build-table-header {
   font-size: 1.2em;
