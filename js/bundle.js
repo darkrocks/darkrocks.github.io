@@ -12,10 +12,10 @@ var pieChart = require('./components/pieChart/pieChart');
 var coverageIndicator = require('./components/coverageIndicator/coverageIndicator');
 
 var app = angular.module('app', ['ngMockE2E', 'ngAnimate']);
-app.run(['$httpBackend', backendStub]);
+app.run(backendStub);
 
-app.controller('LandingController', ['$scope', 'dataService', LandingController]);
-app.factory('dataService', ['$http', dataService]);
+app.controller('LandingController', LandingController);
+app.factory('dataService', dataService);
 app.directive('buildRow', buildRow);
 app.directive('progressBar', progressBar);
 app.directive('pieChart', pieChart);
@@ -162,6 +162,7 @@ var backendStub = function($httpBackend) {
   $httpBackend.whenGET(/templates/).passThrough();
 };
 
+backendStub.$inject = ['$httpBackend'];
 module.exports = backendStub;
 
 },{}],3:[function(require,module,exports){
@@ -482,6 +483,7 @@ var dataService = function ($http) {
   };
 };
 
+dataService.$inject = ['$http'];
 module.exports = dataService;
 
 },{}],8:[function(require,module,exports){
@@ -500,9 +502,9 @@ var LandingController = function ($scope, dataService) {
     $scope.activeBuildId = clickedBuild.id;
   };
 
-  console.log('Hey, Crossover!');
 };
 
+LandingController.$inject = ['$scope', 'dataService'];
 module.exports = LandingController;
 
 },{"angular":13}],9:[function(require,module,exports){
