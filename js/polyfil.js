@@ -97,19 +97,6 @@ Array.prototype.lastIndexOf = function lastIndexOf(searchElement) {
 };
 
 }
-if (!Array.prototype.reduce) {
-// Array.prototype.reduce
-Array.prototype.reduce = function reduce(callback, initialValue) {
-	var array = this, previousValue = initialValue || 0;
-
-	for (var index = 0, length = array.length; index < length; ++index) {
-		previousValue = callback.call(window, previousValue, array[index], index, array);
-	}
-
-	return previousValue;
-};
-
-}
 if (typeof Date !== "undefined" && !Date.now) {
 // Date.now
 Date.now = function now() {
@@ -121,36 +108,6 @@ if (typeof Array !== "undefined" && !Array.isArray) {
 // Array.isArray
 Array.isArray = function isArray(array) {
 	return array && Object.prototype.toString.call(array) === '[object Array]';
-};
-
-}
-if (typeof Object !== "undefined" && !Object.create) {
-// Object.create
-Object.create = function create(prototype, properties) {
-	if (typeof prototype !== 'object') {
-		throw new Error('Object prototype may only be an Object or null');
-	}
-
-	var Constructor = function () {};
-
-	Constructor.prototype = prototype;
-
-	var object = new Constructor();
-
-	Object.defineProperties(object, properties);
-
-	return object;
-};
-
-}
-if (typeof Object !== "undefined" && !Object.defineProperties) {
-// Object.defineProperties
-Object.defineProperties = function defineProperties(object, descriptors) {
-	for (var property in descriptors) {
-		Object.defineProperty(object, property, descriptors[property]);
-	}
-
-	return object;
 };
 
 }
