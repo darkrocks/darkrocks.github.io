@@ -49,7 +49,7 @@ function createItem(type) {
       break;
     case 'changelist':
       var firewallNumber = Math.floor(Math.random() * 100000);
-      item.name = 'Tenrox R1_' + firewallNumber;
+      item.name = firewallNumber;
 
       var nameIndex = Math.floor(Math.random() * 4);
       item.owner = ownerNames[nameIndex];
@@ -502,6 +502,7 @@ var LandingController = function ($scope, dataService) {
     $scope.activeBuildId = clickedBuild.id;
   };
 
+  console.log('Hey, Crossover!');
 };
 
 LandingController.$inject = ['$scope', 'dataService'];
