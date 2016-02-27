@@ -1,12 +1,197 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kazinov Dmitriy for Internations</title>
-  </head>
-  <body>
-    <div id="root">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Yeldlab test task by Dmitriy Kazinov</title>
+
+  <style type="text/css">
+    /*
+    * button
+    */
+    .button {
+      width: 200px;
+      height: 65px;
+      border-radius: 6px;
+      box-shadow: 0 0 0 2px #1dbdbf, 0 0 0 4px #17989a;
+      margin: 50px;
+      text-align: center;
+      color: white;
+      background-color: #17989a;
+      font-size: 30px;
+      font-weight: 700;
+      font-family: sans-serif;
+      padding: 8px;
+    }
+
+    .button-layer-2 {
+      border-radius: 6px;
+      width: 200px;
+      height: 56px;
+      padding-top: 9px;
+      background: #7ebfc0;
+      background: -moz-linear-gradient(top, #7ebfc0 0%, #6ab7b9 46%, #6ab7b9 46%, #36a4a6 67%, #36a4a6 67%, #17989a 100%);
+      background: linear-gradient(to bottom, #A3DEE0 0%,#86B9BA 46%,#76B2B4 46%,#36a4a6 67%,#36a4a6 67%,#17989a 100%);
+      box-shadow: 1px 1px 4px 0px rgb(98, 98, 98);
+      text-shadow: 2px 2px 2px rgba(95, 102, 109, 0.7);
+    }
+
+    .icon-container {
+      float: left;
+      width: 30%;
+    }
+
+    .text-container {
+      float: left;
+      width: 40%;
+      margin-top: 8px;
+    }
+
+    .circle {
+      position: relative;
+      width: 31px;
+      height: 31px;
+      background: white;
+      -moz-border-radius: 12px;
+      -webkit-border-radius: 12px;
+      border-radius: 16px;
+      margin-top: 9px;
+      box-shadow: 1px 1px 4px 0px rgb(98, 98, 98);
+    }
+
+    .circle.left {
+      margin-left: 23px;
+    }
+
+    .circle.right {
+      margin-left: 6px;
+    }
+
+    .star.in-circle {
+      top: -20px;
+      left: -84px;
+    }
+
+    .star {
+      position: absolute;
+      display: block;
+      color: #3b9091;
+      width: 0px;
+      height: 0px;
+      border-right:  100px solid transparent;
+      border-bottom: 70px  solid #3b9091;
+      border-left:   100px solid transparent;
+      -moz-transform:    rotate(35deg) scale(0.08);
+      -webkit-transform: rotate(35deg)  scale(0.08);
+      -ms-transform:     rotate(35deg)  scale(0.08);
+      -o-transform:      rotate(35deg)  scale(0.08);
+    }
+    .star:before {
+      border-bottom: 80px solid #3b9091;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      position: absolute;
+      height: 10px;
+      width: 0;
+      top: -45px;
+      left: -65px;
+      display: block;
+      content: '';
+      -webkit-transform: rotate(-35deg);
+      -moz-transform:    rotate(-35deg);
+      -ms-transform:     rotate(-35deg);
+      -o-transform:      rotate(-35deg);
+    }
+    .star:after {
+      position: absolute;
+      display: block;
+      color: #3b9091;
+      top: 3px;
+      left: -105px;
+      width: 0px;
+      height: 0px;
+      border-right: 100px solid transparent;
+      border-bottom: 70px solid #3b9091;
+      border-left: 100px solid transparent;
+      -webkit-transform: rotate(-70deg);
+      -moz-transform:    rotate(-70deg);
+      -ms-transform:     rotate(-70deg);
+      -o-transform:      rotate(-70deg);
+      content: '';
+    }
+
+    /*
+    * input
+    */
+
+    .input {
+      border-top: 0px;
+      border-right: 0px;
+      border-left: 0px;
+      border-bottom: 2px;
+      border-style: solid;
+      font-size: 21px;
+      font-family: sans-serif;
+      width: 170px;
+      float: left;
+      padding-left: 10px;
+      box-sizing: content-box;
+      height: 24px;
+    }
+
+    .input-wrapper {
+      margin: 50px;
+
+    }
+
+    .input-icon {
+      position: relative;
+      float:left;
+      background-color: black;
+      height: 28px;
+      width: 28px;
+    }
+
+
+    .star.in-square {
+      top: -22px;
+      left: -85px;
+      border-bottom-color: white;
+    }
+
+    .star.in-square:before {
+      border-bottom-color: white;
+    }
+
+    .star.in-square:after {
+      border-bottom-color: white;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Yeldlab test task by Dmitriy Kazinov</h1>
+  <div class="button">
+    <div class="button-layer-2">
+      <div class="icon-container">
+        <div class="circle left">
+          <div class="star in-circle"></div>
+        </div>
+      </div>
+      <div class="text-container">NICE</div>
+      <div class="icon-container">
+        <div class="circle right">
+          <div class="star in-circle"></div>
+        </div>
+      </div>
     </div>
-    <script src="/bundle.js"></script>
-  </body>
+  </div>
+
+
+  <div class="input-wrapper">
+    <div class="input-icon">
+      <div class="star in-square"></div>
+    </div>
+    <input class="input" placeholder="type something">
+  </div>
+</body>
 </html>
